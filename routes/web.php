@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatAppController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,17 +15,21 @@ use App\Http\Controllers\ChatAppController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-// require __DIR__.'/auth.php';
 
 
-Route::get('/', [ChatAppController::class, 'loadview']);
+// Route::get('/', [ChatAppController::class, 'loadview']);
 
-Route::post('/boardcast-message',[ChatAppController::class,'board_message'])->name('boardcast-message');
+// Route::post('/boardcast-message',[ChatAppController::class,'board_message'])->name('boardcast-message');
+
+Route::get('/dashboard', [UserController::class, 'load_dashboard']
+)->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

@@ -1,5 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
+ <x-app-layout>
+ {{--<x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
@@ -13,8 +13,40 @@
                 </div>
             </div>
         </div>
+    </div>--}}
+
+    <div class="container mt-4">
+
+        <div class="row">
+
+        @if(count($users) >0)
+
+        <div class="col-md-3">
+
+        <ul class="list-group">
+            @foreach ($users as user)
+
+            {{$user->name}}
+            @endforeach
+
+        </ul>
+
+        </div>
+
+        <div class="col-md-9">
+
+        </div>
+
+         @else
+
+         <h6>Users not found!</h6>
+
+        @endif
+
+        </div>
+
     </div>
-</x-app-layout>
+</x-app-layout> 
 
 <script src="{{ asset('js/app.js') }}"></script>
 <script>
