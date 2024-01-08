@@ -92,3 +92,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 12. php artisan breeze:install
 
+/* serve websockets project */
+
+php artisan websockets:serve
+3.
